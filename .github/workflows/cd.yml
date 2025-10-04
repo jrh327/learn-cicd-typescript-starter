@@ -34,3 +34,6 @@ jobs:
 
       - name: Push
         run: gcloud builds submit --tag '${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_REPO }}/${{ secrets.APP_NAME }}:latest' .
+      
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy '${{ secrets.APP_NAME }}' --image '${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_REPO }}/${{ secrets.APP_NAME }}:latest' --region '${{ secrets.GCP_REGION }}' --allow-unauthenticated --project '${{ secrets.GCP_PROJECT }}' --max-instances=4
