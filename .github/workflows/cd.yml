@@ -33,4 +33,4 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v3'
 
       - name: Push
-        run: gcloud builds submit --tag '${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_REPO }}/${{ secrets.APP_NAME }}:latest .
+        run: gcloud builds submit --tag '${{ secrets.GCP_REGION }}-docker.pkg.dev/${{ secrets.GCP_PROJECT }}/${{ secrets.GCP_REPO }}/${{ secrets.APP_NAME }}:latest' .
